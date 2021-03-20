@@ -1,0 +1,2 @@
+Time taken by function <insertion_sort> is : 0.000372 sec
+Time taken by function <selection> is : 0.000005900 sec
