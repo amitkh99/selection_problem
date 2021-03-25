@@ -8,12 +8,16 @@ using namespace std;
 using namespace Arr;
 
 
-void main() {
+int main() {
 	int size, index,index_of_the_num;
-	cout << "please enter an array size" << endl;
+	double num_to_print;
+	//cout << "please enter an array size" << endl;
 	cin >> size;
-	cout << "please enter the size to find" << endl;
+	check_size(size);
+
+	//cout << "please enter the size to find" << endl;
 	cin >> index;
+	check_index(index, size);
 
 	
 
@@ -25,7 +29,7 @@ void main() {
 	auto start = chrono::high_resolution_clock::now();
 	// unsync the I/O of C and C++.
 	ios_base::sync_with_stdio(false);
-	insertion_sort(copy_arr, array_from_user.get_size(), array_from_user.get_index());// Here you put the name of the function you wish to measure
+	num_to_print = insertion_sort(copy_arr, array_from_user.get_size(), array_from_user.get_index());// Here you put the name of the function you wish to measure
 	auto end = chrono::high_resolution_clock::now();
 	double time_taken =
 		chrono::duration_cast<chrono::nanoseconds>(end - start).count();
@@ -34,6 +38,8 @@ void main() {
 	myfile << "Time taken by function <insertion_sort> is : " << fixed
 		<< time_taken << setprecision(9);
 	myfile << " sec" << endl;
+
+	cout << "Insertion sort i'th element: " << fixed << setprecision(4) << num_to_print << endl;
 	
 	copy_arr = array_from_user.get_copy_arr();
 
@@ -42,6 +48,9 @@ void main() {
 	ios_base::sync_with_stdio(false);
 	index_of_the_num = selection(copy_arr, 0, (array_from_user.get_size() - 1), index);// Here you put the name of the function you wish to measure
 	 end = chrono::high_resolution_clock::now();
+	 
+	 ///return num not index!!!!!!!!!!!!!!!!TO FIX
+	 /// 
 	 time_taken =
 		chrono::duration_cast<chrono::nanoseconds>(end - start).count();
 	time_taken *= 1e-9;
@@ -50,7 +59,7 @@ void main() {
 		<< time_taken << setprecision(9);
 	myfile << " sec" << endl;
 
-	cout << copy_arr[index_of_the_num] << endl;
+	cout << "Selection i'th element: " << fixed << setprecision(4) << num_to_print << endl;
 	//selection(copy_arr, 0, (array_from_user.get_size() - 1), index);
 	delete[] copy_arr;
 
@@ -58,7 +67,7 @@ void main() {
 
 	copy_arr = array_from_user.get_copy_arr();
 	
-	double num_to_print;
+	
 
 	start = chrono::high_resolution_clock::now();
 	// unsync the I/O of C and C++.
@@ -75,7 +84,10 @@ void main() {
 
 	myfile.close();
 
-	cout << num_to_print << endl;
+
+	cout <<"Quintuplet algorithm i'th element: "<< fixed << setprecision(4) << num_to_print << endl;
 
 	//delete[] copy_arr;
+
+	return 1;
 }
