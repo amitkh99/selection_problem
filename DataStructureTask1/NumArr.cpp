@@ -242,15 +242,7 @@ namespace Arr {
 				}
 			}
 
-		/*	for (i = 0; i < size; i++)
-				cout << Arr[i] << ",";
-			cout << endl;
-
-			for (i = 0; i < ceil(size / double(5)); i++)
-							cout << Arr_median[i] << ",";
-						cout << endl;*/
-			
-			//int median = selection(Arr_median, 0, size / 5, ((size / 5) / 2 + 1));
+		
 
 			double median = quintet_algorithm(Arr_median, ceil(size / double(5)), ceil((size / double(10))));
 
